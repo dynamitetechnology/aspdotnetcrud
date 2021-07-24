@@ -13,6 +13,10 @@
      <asp:Label ID="Label2" runat="server" Text="Last Name"></asp:Label>
         <asp:TextBox ID="lName" class="form-control rounded-0" runat="server"></asp:TextBox>
     </div>
+       <div class="col">
+     <asp:Label ID="Label3" runat="server" Text="Upload Image"></asp:Label>
+       <asp:FileUpload id="FileUpLoad1" runat="server" />  
+    </div>
   </div>
         <asp:Button ID="Button1" class="btn btn-success rounded-0 btn-lg btn-block mt-5" OnClick="insertData" runat="server" Text="Button" />
     </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -53,17 +54,26 @@ namespace WebApplication
             {
                 string fname = fName.Text;
                 string lname = lName.Text;
+
+                if ((FileUpLoad1.PostedFile != null) && (FileUpLoad1.PostedFile.ContentLength > 0))
+                {
+                    string fn = System.IO.Path.GetFileName(FileUpLoad1.PostedFile.FileName);
+                    string SaveLocation = Server.MapPath("Uploads") + "\\" + fn;
+                    FileUpLoad1.PostedFile.SaveAs(SaveLocation);
+
+                }
+                //  FileUploadStatus.Text = "The file has been uploaded.";
                 // Creating Connection  
                 con = new SqlConnection(cons.Connect());
                 // writing sql query  
-                string sql = "insert into testme(fname, lname) values ('"+fname+"','"+lname+"')"; 
+                string sql = "insert into testme(fname, lname) values ('" + fname + "','" + lname + "')";
 
                 SqlCommand cm = new SqlCommand(sql, con);
                 // Opening Connection  
                 con.Open();
-              int status =   cm.ExecuteNonQuery();
+                int status = cm.ExecuteNonQuery();
 
-                if(status > 0)
+                if (status > 0)
                 {
                     Console.WriteLine("Success");
                     Response.Redirect("Default");
