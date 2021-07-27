@@ -55,10 +55,11 @@ namespace WebApplication
                 string fname = fName.Text;
                 string lname = lName.Text;
 
+                string SaveLocation = "";
                 if ((FileUpLoad1.PostedFile != null) && (FileUpLoad1.PostedFile.ContentLength > 0))
                 {
                     string fn = System.IO.Path.GetFileName(FileUpLoad1.PostedFile.FileName);
-                    string SaveLocation = Server.MapPath("Uploads") + "\\" + fn;
+                    SaveLocation = Server.MapPath("Uploads") + "\\" + fn;
                     FileUpLoad1.PostedFile.SaveAs(SaveLocation);
 
                 }
