@@ -19,17 +19,17 @@ namespace WebApplication
     {
 
         [WebMethod]
-        public string deleteRecord(string myUserName)
+        public string deleteRecord(string id)
         {
-            Connection cons = new Connection();
-            SqlConnection con = new SqlConnection(cons.Connect());
-            string query = "delete  from testme where  id = '"+myUserName+"'";
-            SqlCommand cm = new SqlCommand(query, con);
-            // Opening Connection  
-            con.Open();
-            int status = cm.ExecuteNonQuery();
-            return "Hello World"+ myUserName;
-            con.Close();
+            //Connection cons = new Connection();
+            //SqlConnection con = new SqlConnection(cons.Connect());
+            //string query = "delete  from testme where  id = '"+myUserName+"'";
+            //SqlCommand cm = new SqlCommand(query, con);
+            //// Opening Connection  
+            //con.Open();
+            //int status = cm.ExecuteNonQuery();
+            return "Response From Web Service "+ id;
+            //con.Close();
         }
     }
 }

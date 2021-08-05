@@ -58,7 +58,7 @@
                   contentType: "application/json; charset=utf-8",
                   url: "WebServiceAjax.asmx/deleteRecord",
                   dataType: "json",
-                  data: "{'myUserName':'" + id + "'}", 
+                  data: "{'id':'" + id + "'}", 
                   success: function (resp) {
                       console.log('resp', resp)
                   },
