@@ -54,12 +54,15 @@ namespace WebApplication
             {
                 string fname = fName.Text;
                 string lname = lName.Text;
+
                 string SaveLocation = "";
                 string newlocation;
+
                 if ((FileUpLoad1.PostedFile != null) && (FileUpLoad1.PostedFile.ContentLength > 0))
                 {
                     string fn = System.IO.Path.GetFileName(FileUpLoad1.PostedFile.FileName);
                     SaveLocation = Server.MapPath("Uploads") + "\\" + fn;
+
                     newlocation = "\\"+"Uploads" + "\\" + fn;
                     FileUpLoad1.PostedFile.SaveAs(SaveLocation);
 
