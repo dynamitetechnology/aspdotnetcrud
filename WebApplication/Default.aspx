@@ -48,21 +48,21 @@
 
      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
-  <script>
+  <script type="text/javascript">
       $(document).ready(function () {
           $(".deleteButton").on('click', function () {
               let id = $(this).attr('data-id');
               console.log('Hello', id)
               $.ajax({
                   type: "POST",
-                  contentType: "application/json; charset=utf-8",  
-                 url: "Default.aspx/deleteRecord",
-                
-                  data: { id: id },
+                  contentType: "application/json; charset=utf-8",
+                  url: "WebServiceAjax.asmx/deleteRecord",
+                  dataType: "json",
+                  data: "{'myUserName':'" + id + "'}", 
                   success: function (resp) {
                       console.log('resp', resp)
                   },
-                  dataType: "json"
+                  
               });
           })
       })
